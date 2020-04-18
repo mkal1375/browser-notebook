@@ -26,5 +26,10 @@ describe("<NewNoteForm />", () => {
     it("calls the save handler", () => {
       expect(saveHandler).toHaveBeenCalledWith("New note");
     });
+
+    it("The blank notes should not be saved.", () => {
+      fireEvent.click(getByTestId("saveButton"));
+      expect(saveHandler.mock.calls.length).toEqual(1);
+    });
   });
 });

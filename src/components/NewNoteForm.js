@@ -9,8 +9,10 @@ const NewNoteForm = ({ onSave, props }) => {
 
   const save = (event) => {
     event.preventDefault();
-    onSave(input);
-    setInput("");
+    if (input !== "") {
+      onSave(input);
+      setInput("");
+    }
   };
 
   return (
