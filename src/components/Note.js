@@ -23,7 +23,9 @@ const Note = ({ note, id, deleteNote, editNote, ...props }) => {
       >
         x
       </span>
-      <span className="note__date">{relativeDate(note.modifiedAt)}</span>
+      <span className="note__date" data-testid="note_date">
+        {relativeDate(note.modifiedAt)}
+      </span>
     </li>
   );
 };

@@ -29,12 +29,14 @@ const notesReducer = (state, action) => {
       };
     }
     case "EDIT_NOTE": {
+      if (action.payload.text === state.notes[action.payload.noteId].text)
+        return state;
       return {
         ...state,
         notes: {
           ...state.notes,
           [action.payload.noteId]: {
-            createdAt: state.notes[action.payload.noteId],
+            createdAt: state.notes[action.payload.noteId].creationAt,
             modifiedAt: new Date(),
             text: action.payload.text,
           },
