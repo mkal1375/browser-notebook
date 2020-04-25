@@ -1,21 +1,21 @@
 @font-face {
-  src: url("../assets/fonts/SpaceMono-Regular.ttf");
+  src: url("../assets/fonts/Product\ Sans\ Regular.ttf");
   font-family: "space mono";
   font-weight: normal;
 }
 @font-face {
-  src: url("../assets/fonts/SpaceMono-Bold.ttf");
+  src: url("../assets/fonts/Product\ Sans\ Bold.ttf");
   font-family: "space mono";
   font-weight: bold;
 }
 @font-face {
-  src: url("../assets/fonts/SpaceMono-Italic.ttf");
+  src: url("../assets/fonts/Product\ Sans\ Italic.ttf");
   font-family: "space mono";
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  src: url("../assets/fonts/SpaceMono-BoldItalic.ttf");
+  src: url("../assets/fonts/Product\ Sans\ Bold\ Italic.ttf");
   font-family: "space mono";
   font-weight: bold;
   font-style: italic;
@@ -33,7 +33,7 @@
 *,
 *:before,
 *:after {
-  font-family: "Space Mono", "vazir";
+  font-family: "Product Sans", "vazir";
 }
 .app {
   display: flex;
