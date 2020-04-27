@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const NewNoteForm = ({ onSave, props }) => {
   const [input, setInput] = useState("");
+  const [buttonText, setButtonText] = useState("Save");
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -12,6 +13,8 @@ const NewNoteForm = ({ onSave, props }) => {
     if (input !== "") {
       onSave(input);
       setInput("");
+      setButtonText("Saved!");
+      setTimeout(() => setButtonText("Save"), 3000);
     }
   };
 
@@ -24,8 +27,12 @@ const NewNoteForm = ({ onSave, props }) => {
         data-testid="noteText"
         placeholder="Note + enter"
       />
-      <button data-testid="saveButton" onClick={save}>
-        Save
+      <button
+        data-testid="saveButton"
+        className={buttonText === "Saved!" ? "saved" : ""}
+        onClick={save}
+      >
+        {buttonText}
       </button>
     </form>
   );

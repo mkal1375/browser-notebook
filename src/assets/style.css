@@ -1,22 +1,32 @@
 @font-face {
+  src: url("../assets/fonts/Vazir.ttf");
+  font-family: "vazir";
+  font-weight: normal;
+}
+@font-face {
+  src: url("../assets/fonts/Vazir-Bold.ttf");
+  font-family: "vazir";
+  font-weight: bold;
+}
+@font-face {
   src: url("../assets/fonts/Product\ Sans\ Regular.ttf");
-  font-family: "space mono";
+  font-family: "product sans";
   font-weight: normal;
 }
 @font-face {
   src: url("../assets/fonts/Product\ Sans\ Bold.ttf");
-  font-family: "space mono";
+  font-family: "product sans";
   font-weight: bold;
 }
 @font-face {
   src: url("../assets/fonts/Product\ Sans\ Italic.ttf");
-  font-family: "space mono";
+  font-family: "product sans";
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   src: url("../assets/fonts/Product\ Sans\ Bold\ Italic.ttf");
-  font-family: "space mono";
+  font-family: "product sans";
   font-weight: bold;
   font-style: italic;
 }
@@ -33,24 +43,24 @@
 *,
 *:before,
 *:after {
-  font-family: "Product Sans", "vazir";
+  font-family: "product sans", "vazir";
 }
 .app {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
+  width: 100vw;
   overflow: auto;
 }
 .notebook {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  border-radius: 4px;
-  box-shadow: var(--sm-shadow);
-  max-height: 70vh;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
 }
+
 .new_note_form {
   display: flex;
   position: relative;
@@ -67,8 +77,9 @@
   position: absolute;
   right: 0;
   left: 0;
-  top: 100%;
-  height: 32px;
+  top: 110%;
+  height: 30px;
+  z-index: 1;
 }
 
 .new_note_form input {
@@ -79,36 +90,54 @@
   padding: 0.2rem 1rem;
   outline: none;
   font-weight: 600;
-  height: 2.5rem;
+  height: 3rem;
+  border-radius: 4px 0 0 4px;
 }
 .new_note_form button {
   border: none;
   background-color: var(--red);
   color: var(--white);
   outline: none;
+  padding: 0 1rem;
   font-size: 1.1rem;
   font-weight: 900;
+  border-radius: 0 4px 4px 0;
 }
-
-.new_note_form button:focus {
-  border-radius: var(--sm-curve);
+.new_note_form button:hover {
+  color: var(--light-gray);
+}
+.new_note_form button.saved {
+  background-color: var(--light-gray);
+  color: var(--red);
 }
 
 .notes {
-  margin-top: 1rem;
-  padding: 0 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
   list-style: none;
   overflow: auto;
+  -ms-overflow-style: none;
+}
+
+.notes::-webkit-scrollbar {
+  display: none;
 }
 
 .note {
   box-shadow: var(--sm-shadow);
   padding: 1rem;
-  margin: 0.5rem 0;
   position: relative;
+  border-radius: 4px;
+  height: 3.5rem;
 }
 .note p {
   outline: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .note:hover span.note__delete_button {
